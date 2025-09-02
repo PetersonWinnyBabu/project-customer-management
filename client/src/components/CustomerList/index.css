@@ -1,0 +1,43 @@
+.customerList{
+    list-style-type:none;
+    display: flex;
+    justify-content: flex-start;
+    width:85%;
+    padding:20px;
+    flex-wrap: wrap;
+    overflow: auto;
+}
+
+.listItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:200px;
+    height: 100px;
+    border-radius: 8px;
+    padding:10px;
+    margin-right:10px;
+    margin-bottom:10px;
+    background-color: beige;
+    text-align: center;
+    color:navy;
+    
+}
+.listItem:hover {
+  background-color: navy;
+  color: beige;
+}
+.customerName{
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Roboto';
+    
+    
+}
+.addressCount{
+    font-size: 20px;
+    
+    font-family: 'Roboto';
+    color: black;
+}

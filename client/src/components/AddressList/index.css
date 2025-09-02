@@ -1,0 +1,14 @@
+.address-List{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width:85%;
+    height:500px;
+    overflow-y: scroll;
+}
+
+.error-msg{
+    color:red;
+    font-size: 20px;
+}
