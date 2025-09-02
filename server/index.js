@@ -6,16 +6,19 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const dotenv = require('dotenv').config()
 
-
-
+const  PORT = 5000
 const app = express()
-app.use(cors('https://localhost:3000/'));
+app.use(cors({
+        origin : 'http://localhost:3000',
+        credentials : true
+ }))
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use('/api', require('./routes/customerRoutes'))
 app.use(bodyParser.json())
-const PORT = 5000
 
 
 // const initializeDBAndServer = async () => {
@@ -39,4 +42,6 @@ app.listen(PORT, () => {
 
 
 module.exports = app
+
+
 

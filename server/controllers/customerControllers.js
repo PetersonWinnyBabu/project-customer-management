@@ -236,4 +236,4 @@ module.exports = {getCustomers,createCustomer,customerDetails,updateCustomer,del
 
 //   setTodo,
 //   updateTodo,
-//   deleteTo
+

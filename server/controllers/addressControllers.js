@@ -76,5 +76,4 @@ const deleteAddress = (req,res) => {
         res.status(200).json({"message":'Address DELETED'})
     })
 }
-
 module.exports = {addAddress,getAddress,updateAddress,deleteAddress}

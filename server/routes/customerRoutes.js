@@ -10,5 +10,4 @@ router.route('/customers/:id').get(customerDetails).put(updateCustomer).delete(d
 router.route('/customers/:id/addresses').get(getAddress).post(addAddress)
 router.route('/addresses/:addressId').put(updateAddress).delete(deleteAddress)
 
-
 module.exports = router;

@@ -42,5 +42,4 @@ const addressTableCommand = `CREATE TABLE IF NOT EXISTS addresses (
     console.log('Addresses Table Created')
   })
 
-
 module.exports = db
