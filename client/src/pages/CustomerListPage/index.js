@@ -12,7 +12,7 @@ const  CustomerListPage = ()  => {
     const [searchParameter,setsearchParameter] = useState('')
     const [searchField,setsearchField] = useState('')
     const navigate = useNavigate() 
-    const sortBy = 'id'
+    
 
     const url = new URL("https://api-project-customer-management.onrender.com/api/customers");
 
@@ -44,15 +44,23 @@ const makeApiCall = (finalUrl) => {
     
 const onSearch = () => {
         if (searchField === "city") {
-        url.searchParams.set("city", searchParameter);
-        } else if (searchField === "phone_number") {
-        url.searchParams.set("phone_number", searchParameter);
-        } else if (searchField === "first_name") {
-        url.searchParams.set("first_name", searchParameter);
+            url.searchParams.set("city", searchParameter);
+            url.searchParams.set("sortBy",'city')
+            
+        
+        }  if (searchField === "phone_number") {
+            url.searchParams.set("phone_number", searchParameter);
+            url.searchParams.set("sortBy",'phone_number')
+            
+            
+        }  if (searchField === "first_name") {
+            url.searchParams.set("first_name", searchParameter);
+            url.searchParams.set("sortBy",'first_name')
+            
         }
+
             url.searchParams.set("page", 1)
             url.searchParams.set("limit",10)
-            url.searchParams.set("sortBy",sortBy)
             const finalUrl = url.toString();
             console.log(finalUrl)
             makeApiCall(finalUrl)
@@ -87,5 +95,6 @@ const onSearch = () => {
 
 
 export default CustomerListPage;
+
 
 
