@@ -12,7 +12,7 @@ const CustomerDetailPage = (props) => {
 
 
     const onClickDelete = () => {
-        axios.delete(`https://api-project-customer-management.onrender.com/api/customers/${id}`)
+        axios.delete(`https://project-customer-management.onrender.com/api/customers/${id}`)
             .then(response => {
                 console.log(response.data.data);
                 alert(response.data.message)
@@ -37,7 +37,7 @@ const CustomerDetailPage = (props) => {
     
 
     useEffect(() => {
-        axios.get(`https://api-project-customer-management.onrender.com/api/customers/${id}`)
+        axios.get(`https://project-customer-management.onrender.com/api/customers/${id}`)
             .then(response => {
                 setcustomerDetails(response.data.data);
             })
@@ -75,4 +75,5 @@ return (
 
 
 export default CustomerDetailPage
+
 
