@@ -11,7 +11,7 @@ const dotenv = require('dotenv').config()
 const  PORT = 5000
 const app = express()
 app.use(cors({
-        origin : 'http://localhost:3000',
+        origin : 'https://api-project-customer-management.onrender.com',
         credentials : true
  }))
 
@@ -42,6 +42,7 @@ app.listen(PORT, () => {
 
 
 module.exports = app
+
 
 
 
