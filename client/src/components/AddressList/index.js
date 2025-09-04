@@ -11,7 +11,7 @@ const AddressList = () => {
     const [addressesList, setaddressesList] = useState([]);
 
 useEffect(() => {
-        axios.get(`http://localhost:5000/api/customers/${id}/addresses`)
+        axios.get(`http://https://api-project-customer-management.onrender.com/api/customers/${id}/addresses`)
             .then(response => {
                 setaddressesList(response.data.data);
             })
@@ -30,5 +30,6 @@ return (
 )}
 </ul>)
 }
+
 
 export default AddressList
