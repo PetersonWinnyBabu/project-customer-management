@@ -14,7 +14,7 @@ const AddressListItem = (props) => {
     }
 
     const onclickDelete = () => {
-        axios.delete(`http://localhost:5000/api/addresses/${id}`)
+        axios.delete(`http://https://api-project-customer-management.onrender.com/api/addresses/${id}`)
             .then(response => {
                 console.log(response.data.data);
                 alert(response.data.message)
@@ -39,5 +39,6 @@ const AddressListItem = (props) => {
         </div>
     </li>)
 }
+
 
 export default AddressListItem
