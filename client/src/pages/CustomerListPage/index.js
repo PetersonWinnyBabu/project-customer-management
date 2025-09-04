@@ -23,7 +23,7 @@ const  CustomerListPage = ()  => {
 
     useEffect(() => {
         
-        axios.get('http://localhost:5000/api/customers')
+        axios.get('http://https://api-project-customer-management.onrender.com/api/customers')
             .then(response => {
                 setCustomers(response.data.data);
             })
@@ -87,3 +87,4 @@ const onSearch = () => {
 
 
 export default CustomerListPage;
+
