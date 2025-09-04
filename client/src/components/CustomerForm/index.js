@@ -26,7 +26,7 @@ const  OnFormSubmit = (event) => {
     console.log(lastName)
 
     if (firstNameError === false && phoneNumberError === false){
-        axios.post('http://localhost:5000/api/customers',body)
+        axios.post('http://https://api-project-customer-management.onrender.com/api/customers',body)
         .then(response => {
             alert(response.data.message);
             navigate(-1)
@@ -84,5 +84,6 @@ const onBlurPhoneNumber = () => {
  
     )
 }
+
 
 export default CustomerForm
