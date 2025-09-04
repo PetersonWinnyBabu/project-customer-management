@@ -14,7 +14,7 @@ const  CustomerListPage = ()  => {
     const navigate = useNavigate() 
     const sortBy = 'id'
 
-    const url = new URL("http://localhost:5000/api/customers");
+    const url = new URL("http://https://api-project-customer-management.onrender.com/api/customers");
 
     const onClickAddCustomer = () => {
         navigate('/new-customer')
@@ -84,5 +84,6 @@ const onSearch = () => {
         </div>
     );
 }
+
 
 export default CustomerListPage;
