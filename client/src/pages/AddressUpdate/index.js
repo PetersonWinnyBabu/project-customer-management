@@ -23,7 +23,7 @@ const  onFormSubmit = (event) => {
     console.log(addressDetails)
     console.log(city)
         // Fetch customers from the backend API
-    axios.put(`https://api-project-customer-management.onrender.com/api/addresses/${addressId}`,body)
+    axios.put(`https://project-customer-management.onrender.com/api/addresses/${addressId}`,body)
         .then(response => {
             alert(response.data.message);
             navigate(-1)
@@ -73,4 +73,5 @@ const  onFormSubmit = (event) => {
 
 
 export default AddressUpdatePage
+
 
