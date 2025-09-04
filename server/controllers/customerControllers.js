@@ -3,27 +3,68 @@ const datab = require('../database.js')
 
 
 
-// const  getCustomers = (req, res) => {
-//     const {city} = req.query
-//     let query = `SELECT * FROM customers WHERE 1=1`;
-//     let params = [];
+// const  getCustomers = async (req, res) => {
+//     // const {city,first_name,} = req.query
+//     let query = `SELECT * FROM customers  WHERE 1=1;`;
+    
 
-//     if (city) {
-//         query += ` AND city LIKE ?`;
-//         params.push('%${city}%');
-//     }
 
-//     // const query = `SELECT customers.id,customers.first_name,customers.last_name,customers.phone_number FROM customers LEFT JOIN addresses  WHERE 1=1 AND city LIKE ?;`
-//     datab.all(query,params,(err,rows) => {
+
+
+//     // if (city) {
+//     //     query += ` AND city LIKE ?`;
+//     //     params.push('%${city}%');
+//     // }
+
+//     //const query = `SELECT customers.id,customers.first_name,customers.last_name,customers.phone_number FROM customers LEFT JOIN addresses  WHERE 1=1 AND city LIKE ?;`
+//     let customerArray = []
+//     datab.all(query,[],(err,rows) => {
+        
 //         if (err){
 //             console.log(err)
-//             res.status(400).json({"error":err.message})
+//             res.status(500).json({"error":err.message})
 //         }
-//         res.status(200).json({"message":'SUCCESS',
-//             "data": rows
-//         }) 
-//     })    
-//}
+//         customerArray.push(...rows)
+//         // console.log(customerArray)
+
+       
+        
+
+//         customerArray.map((eachItem) => { 
+//             const query2 = `SELECT * FROM addresses WHERE customer_id = ?;`
+//             datab.all(query2,[eachItem.id],(err,rows) => {
+//                 if (err){
+//                     console.log(err)
+//                     res.status(500).json({"error":err.message})
+//                 }
+//                     return({...eachItem, 'addresses' : rows})
+//             })
+            
+            
+//         })
+//         console.log(customerArray)
+
+        
+//         res.status(200).json({"message":'SUCCESS' , 'data' : []})
+// }) 
+
+    
+
+//     // let finalArray = customerArray[0].forEach((eachItem) => {
+//     //     let addressesArray = []
+//     //     const query2 = `SELECT * addresses where customer.id = ${eachItem.id};`
+//     //     datab.all(query2,params,(err,rows) => {
+//     //         if (err){
+//     //             console.log(err)
+//     //             res.status(500).json({"error":err.message})
+//     //         }
+//     //         addressesArray.push(rows) 
+//     //     })
+//     //     return {...eachItem,'addresses': addressesArray}
+//     // })
+//     // console.log(finalArray)
+//     // res.status(200).json({"message":'SUCCESS' , 'data' : finalArray})
+// }
 
 
 const getCustomers = (req, res) => {
@@ -70,10 +111,11 @@ const getCustomers = (req, res) => {
 
 
         const dataQuery = 
-        `SELECT customers.id,customers.first_name,customers.last_name,customers.phone_number,addresses.city as city,COUNT(addresses.id) AS address_count
-        FROM customers 
-        JOIN addresses ON customers.id = addresses.customer_id
-        ${whereClause} GROUP BY customers.id,customers.first_name ORDER BY addresses.id ASC LIMIT ? OFFSET ?`;
+        `SELECT customers.id,customers.first_name,customers.last_name,customers.phone_number,COUNT(addresses.id) AS address_count
+        FROM addresses 
+         JOIN customers ON customers.id = addresses.customer_id 
+        ${whereClause} GROUP BY customers.id, customers.first_name, customers.last_name, customers.phone_number ORDER BY addresses.id ASC LIMIT ? OFFSET ?`;
+        
         
 
         datab.all(dataQuery, [...params, limit, offset], (err, rows) => {
@@ -236,5 +278,4 @@ module.exports = {getCustomers,createCustomer,customerDetails,updateCustomer,del
 
 //   setTodo,
 //   updateTodo,
-
 
