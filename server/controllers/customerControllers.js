@@ -57,7 +57,7 @@ const getCustomers = (req, res) => {
     }
 
 
-    const countQuery = `SELECT COUNT(*) AS total FROM customers ${whereClause}`;
+    const countQuery = `SELECT COUNT(*) AS total FROM customers JOIN addresses ON customers.id = addresses.customer_id ${whereClause}`;
 
     datab.get(countQuery, params, (err, countResult) => {
         if (err) {
@@ -72,8 +72,8 @@ const getCustomers = (req, res) => {
         const dataQuery = 
         `SELECT customers.id,customers.first_name,customers.last_name,customers.phone_number,addresses.city as city,COUNT(addresses.id) AS address_count
         FROM customers 
-        LEFT JOIN addresses ON customers.id = addresses.customer_id
-        ${whereClause} GROUP BY customers.id,customers.first_name ORDER BY address_count DESC LIMIT ? OFFSET ?`;
+        JOIN addresses ON customers.id = addresses.customer_id
+        ${whereClause} GROUP BY customers.id,customers.first_name ORDER BY addresses.id ASC LIMIT ? OFFSET ?`;
         
 
         datab.all(dataQuery, [...params, limit, offset], (err, rows) => {
@@ -236,4 +236,5 @@ module.exports = {getCustomers,createCustomer,customerDetails,updateCustomer,del
 
 //   setTodo,
 //   updateTodo,
+
 
