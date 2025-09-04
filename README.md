@@ -38,15 +38,11 @@ customer-management-app/
 ├── README.md          # Documentation
 └── package.json       # Dependencies & scripts
 
-⚙️ Installation & Setup
-1. Clone the repository
-git clone https://github.com/your-username/customer-management-app.git
-cd customer-management-app
 
-2. Install dependencies
+Install dependencies
 npm install
 
-3. Start the server
+Start the server
 node index
 
 The API will be available at:
