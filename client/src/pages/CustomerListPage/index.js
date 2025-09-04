@@ -10,11 +10,12 @@ import './index.css'
 const  CustomerListPage = ()  => {
     const [customers, setCustomers] = useState([]);
     const [searchParameter,setsearchParameter] = useState('')
-    const [searchField,setsearchField] = useState('')
+    const [searchField,setsearchField] = useState('city')
     const navigate = useNavigate() 
     
 
     const url = new URL("https://api-project-customer-management.onrender.com/api/customers");
+    
 
     const onClickAddCustomer = () => {
         navigate('/new-customer')
@@ -54,8 +55,8 @@ const onSearch = () => {
             
             
         }  if (searchField === "first_name") {
-            url.searchParams.set("first_name", searchParameter);
             url.searchParams.set("sortBy",'first_name')
+            url.searchParams.set("first_name", searchParameter);
             
         }
 
@@ -70,6 +71,8 @@ const onSearch = () => {
         setsearchField(e.target.value)
 
     }
+
+    console.log(searchField)
 
     return (
         <div className='background-Container'>
@@ -93,8 +96,8 @@ const onSearch = () => {
     );
 }
 
-
 export default CustomerListPage;
+
 
 
 
