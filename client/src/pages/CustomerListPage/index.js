@@ -14,7 +14,7 @@ const  CustomerListPage = ()  => {
     const navigate = useNavigate() 
     
 
-    const url = new URL("https://api-project-customer-management.onrender.com/api/customers");
+    const url = new URL("https://project-customer-management.onrender.com/api/customers");
     
 
     const onClickAddCustomer = () => {
@@ -24,7 +24,7 @@ const  CustomerListPage = ()  => {
 
     useEffect(() => {
         
-        axios.get('https://api-project-customer-management.onrender.com/api/customers')
+        axios.get('https://project-customer-management.onrender.com/api/customers')
             .then(response => {
                 setCustomers(response.data.data);
             })
@@ -97,6 +97,7 @@ const onSearch = () => {
 }
 
 export default CustomerListPage;
+
 
 
 
