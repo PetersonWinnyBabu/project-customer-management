@@ -11,7 +11,7 @@ const AddressList = () => {
     const [addressesList, setaddressesList] = useState([]);
 
 useEffect(() => {
-        axios.get(`http://https://api-project-customer-management.onrender.com/api/customers/${id}/addresses`)
+        axios.get(`https://api-project-customer-management.onrender.com/api/customers/${id}/addresses`)
             .then(response => {
                 setaddressesList(response.data.data);
             })
@@ -33,3 +33,4 @@ return (
 
 
 export default AddressList
+
