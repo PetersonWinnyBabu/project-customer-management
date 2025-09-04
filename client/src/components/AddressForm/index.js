@@ -27,7 +27,7 @@ const  OnFormSubmit = (event) => {
     console.log(addressDetails)
     console.log(city)
         // Fetch customers from the backend API
-    axios.post(`https://api-project-customer-management.onrender.com/api/customers/${id}/addresses`,body)
+    axios.post(`https://project-customer-management.onrender.com/api/customers/${id}/addresses`,body)
         .then(response => {
             setresponseMessage(response.data.message);
             navigate(-1)
@@ -69,4 +69,5 @@ const  OnFormSubmit = (event) => {
 
 
 export default AddressForm
+
 
