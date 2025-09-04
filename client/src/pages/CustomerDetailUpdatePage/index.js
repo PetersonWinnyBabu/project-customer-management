@@ -31,7 +31,7 @@ const CustomerDetailUpdatePage = () => {
             alert("please Fill the Empty Fields")
         }
         else{
-            axios.put(`https://api-project-customer-management.onrender.com/api/customers/${id}`,body)
+            axios.put(`https://project-customer-management.onrender.com/api/customers/${id}`,body)
                 .then(response => {
                     alert(`${response.data.message}`);
                     navigate(-1)
@@ -94,4 +94,5 @@ const onBlurPhoneNumber = () => {
 
 
 export default CustomerDetailUpdatePage
+
 
