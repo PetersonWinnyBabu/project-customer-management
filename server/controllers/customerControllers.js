@@ -112,9 +112,9 @@ const getCustomers = (req, res) => {
 
         const dataQuery = 
         `SELECT customers.id,customers.first_name,customers.last_name,customers.phone_number,COUNT(addresses.id) AS address_count
-        FROM addresses 
-         JOIN customers ON customers.id = addresses.customer_id 
-        ${whereClause} GROUP BY customers.id, customers.first_name, customers.last_name, customers.phone_number ORDER BY addresses.id ASC LIMIT ? OFFSET ?`;
+        FROM customers 
+        LEFT JOIN addresses ON customers.id = addresses.customer_id 
+        ${whereClause} GROUP BY customers.id,customers.first_name,customers.last_name,customers.phone_number ORDER BY addresses.id ASC LIMIT ? OFFSET ?`;
         
         
 
